@@ -17,7 +17,7 @@ class netbt (
       $netbiosoptions = 0
     }
   }
-  $::interface_guids.each | $key, $value| {
+  $facts['interface_guids'].each | $key, $value| {
     registry_value { "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\NetBT\\Parameters\\Interfaces\\Tcpip_{${value}}\\NetbiosOptions":
       ensure => present,
       type   => dword,
